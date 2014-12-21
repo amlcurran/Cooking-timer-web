@@ -7,7 +7,7 @@ function TimerList() {
   }
 
   this.getTimerName = function(index) {
-    return this.timers[index];
+    return this.timers[index].name;
   }
 
 }
