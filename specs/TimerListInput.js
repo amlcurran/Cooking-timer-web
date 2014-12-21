@@ -19,4 +19,11 @@ describe('Inputting data into timerlist', function(){
     expect(list.getTimerName(0)).toBe('Beef');
   });
 
+  it('should be able to delete an item', function(){
+    var list = new TimerList();
+    list.addTimer(new Timer('Beef'));
+    list.addTimer(new Timer('Grapes'));
+    list.removeTimer('Beef');
+    expect(list.getTimerName(0)).toBe('Grapes');
+  });
 });
