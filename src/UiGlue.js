@@ -5,7 +5,7 @@ var messageText = document.querySelector('#message');
 var timerFactory = TimerFactory();
 var timerFactoryCallbacks = TimerFactoryCallbacks(function(timer) {
 
-
+  updateText('Created a timer for ' + timer.name);
 
 }, function(message) {
 
@@ -15,7 +15,7 @@ var timerFactoryCallbacks = TimerFactoryCallbacks(function(timer) {
 
 addTimerButton.onclick = function() {
 
-  timerFactory.create(null, timerFactoryCallbacks);
+  timerFactory.create(nameInputField.value, timerFactoryCallbacks);
 
 }
 

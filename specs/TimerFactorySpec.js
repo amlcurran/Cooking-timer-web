@@ -28,4 +28,12 @@ describe('Validating a timer', function(){
     expect(failedMessage).toBe('No name supplied');
   });
 
+  it('should fail if there is an empty name supplied', function(){
+    var factory = new TimerFactory();
+
+    factory.create('', callbacks);
+    expect(succeeded).toBe(false);
+    expect(failedMessage).toBe('No name supplied');
+  });
+
 });
