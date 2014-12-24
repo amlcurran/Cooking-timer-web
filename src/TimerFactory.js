@@ -8,11 +8,15 @@ function TimerFactory() {
     }
   }
 
+  return this;
+
 }
 
-function TimerFactoryCallback(successFunction, failureFunction) {
+function TimerFactoryCallbacks(successFunction, failureFunction) {
 
   this.success = successFunction;
   this.failure = failureFunction;
+
+  return this;
 
 }

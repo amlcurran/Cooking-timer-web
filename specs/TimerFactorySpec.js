@@ -2,7 +2,7 @@ describe('Validating a timer', function(){
 
   var succeeded = false;
   var failedMessage = null;
-  var callbacks = new TimerFactoryCallback(function(timer) {
+  var callbacks = new TimerFactoryCallbacks(function(timer) {
     succeeded = true;
   }, function(message) {
     failedMessage = message;

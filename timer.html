@@ -2,10 +2,13 @@
 <head>
   <script type='text/javascript' src='src/TimerList.js' ></script>
   <script type='text/javascript' src='src/Timer.js' ></script>
+  <script type='text/javascript' src='src/TimerFactory.js' ></script>
+  <script type='text/javascript' src='src/UiGlue.js' defer></script>
 </head>
 <body>
-  <input type='text' placeholder='Food name'/>
-  <input type='button' value='Add' />
+  <input type='text' id='nameField' placeholder='Food name'/>
+  <input type='button' id='addTimer' value='Add' />
   <input type='time' placeholder='Time' min='0' max='600'/>
+  <h3 id='message'>No issues.</h3>
 </body>
 </html>
