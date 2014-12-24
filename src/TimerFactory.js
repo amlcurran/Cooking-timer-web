@@ -1,7 +1,11 @@
 function TimerFactory() {
 
   this.create = function(name, callbacks) {
-      callbacks.success(new Timer('blergh'));
+    if (name == null) {
+        callbacks.failure('No name supplied');
+    } else {
+        callbacks.success(new Timer('blergh'));
+    }
   }
 
 }
