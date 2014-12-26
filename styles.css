@@ -3,6 +3,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-color: #CC0000;
+    padding: 16px;
 }
 
 #timerListHost {
@@ -11,6 +12,15 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-color: #CCCCCC;
+    padding: 16px;
+}
+
+input {
+    width: 100%;
+}
+
+.spacing {
+    height: 4px;
 }
 
 @media (min-width: 700px) {
@@ -23,13 +33,11 @@
     #addTimerHost {
         width: 48%;
         display: inline-block;
-        padding: 16px;
     }
 
     #timerListHost {
         width: 48%;
         display: inline-block;
-        padding: 16px;
     }
 
 }
