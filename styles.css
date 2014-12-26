@@ -16,7 +16,7 @@
 }
 
 #noTimersLabel {
-    visibility: none;
+    display: none;
 }
 
 input {

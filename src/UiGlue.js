@@ -14,10 +14,15 @@ var timerFactoryCallbacks = TimerFactoryCallbacks(function(timer) {
 });
 
 var timerListCallback = TimerListCallback(function() {
-    noTimerLabel.visibility = 'inline-block';
-}, function(timer) {
+    noTimerLabel.style.display = 'inline-block';
+    console.log('no timers!');
+}, function(addedTimer) {
+    noTimerLabel.style.display = 'none';
     console.log('added timer!');
-}, null);
+}, function(removedTimer) {
+    noTimerLabel.style.display = 'none';
+    console.log('removed timer!');
+});
 timerList.addCallback(timerListCallback);
 
 addTimerButton.onclick = function() {
