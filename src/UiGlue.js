@@ -2,21 +2,26 @@
 var addTimerButton = document.querySelector('#addTimer');
 var nameInputField = document.querySelector('#nameField');
 var messageText = document.querySelector('#message');
+var noTimerLabel = document.querySelector('#noTimersLabel');
 var timerFactory = TimerFactory();
+var timerList = TimerList();
+
 var timerFactoryCallbacks = TimerFactoryCallbacks(function(timer) {
-
   updateText('Created a timer for ' + timer.name);
-
+  timerList.addTimer(timer);
 }, function(message) {
-
   updateText(message);
-
 });
 
+var timerListCallback = TimerListCallback(function() {
+    noTimerLabel.visibility = 'inline-block';
+}, function(timer) {
+    console.log('added timer!');
+}, null);
+timerList.addCallback(timerListCallback);
+
 addTimerButton.onclick = function() {
-
   timerFactory.create(nameInputField.value, timerFactoryCallbacks);
-
 }
 
 this.updateText = function(text) {

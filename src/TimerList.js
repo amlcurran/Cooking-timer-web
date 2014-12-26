@@ -38,6 +38,8 @@ function TimerList() {
       this.callbacks[this.callbacks.length] = callback;
   }
 
+  return this;
+
 }
 
 function TimerListCallback(emptyCallback, addedCallback, removedCallback) {
