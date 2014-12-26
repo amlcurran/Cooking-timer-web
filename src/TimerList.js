@@ -1,9 +1,13 @@
 function TimerList() {
 
   this.timers = [];
+  this.callbacks = [];
 
-  this.addTimer = function(name) {
-    this.timers[this.timers.length] = name;
+  this.addTimer = function(timer) {
+    this.timers[this.timers.length] = timer;
+    for (var i = 0; i < this.callbacks.length; i++) {
+        this.callbacks[i].timerAdded(timer);
+    }
   }
 
   this.getTimerName = function(index) {
@@ -24,5 +28,27 @@ function TimerList() {
     }
     return -1;
   }
+
+  this.addCallback = function(callback) {
+      callback.listEmpty();
+      this.callbacks[this.callbacks.length] = callback;
+  }
+
+}
+
+function TimerListCallback(emptyCallback, addedCallback) {
+
+    this.emptyCallback = emptyCallback;
+    this.addedCallback = addedCallback;
+
+    this.listEmpty = function() {
+        this.emptyCallback();
+    }
+
+    this.timerAdded = function(addedTimer) {
+        this.addedCallback(addedTimer);
+    }
+
+    return this;
 
 }
