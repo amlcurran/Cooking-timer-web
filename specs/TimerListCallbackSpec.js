@@ -7,12 +7,16 @@ describe('callbacks from timerlist', function(){
     };
     var addedCallback = function(timer) {
         addedTimer = timer.name;
+    };
+    var removedCallback = function(timer) {
+        removedTimer = timer.name;
     }
-    var callback = new TimerListCallback(emptyCallback, addedCallback);
+    var callback = new TimerListCallback(emptyCallback, addedCallback, removedCallback);
 
     beforeEach(function() {
         emptyCalled = false;
         addedTimer = null;
+        removedTimer = null;
     });
 
     it('should callback empty on first attach', function() {
@@ -29,6 +33,16 @@ describe('callbacks from timerlist', function(){
         list.addTimer(new Timer('cornflakes'));
 
         expect(addedTimer).toBe('cornflakes');
+    });
+
+    it('should callback an removal when something is removed', function() {
+        var list = new TimerList();
+
+        list.addCallback(callback);
+        list.addTimer(new Timer('cornflakes'));
+        list.removeTimer('cornflakes');
+
+        expect(removedTimer).toBe('cornflakes');
     });
 
 });

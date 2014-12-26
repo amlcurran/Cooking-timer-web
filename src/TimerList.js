@@ -16,7 +16,11 @@ function TimerList() {
 
   this.removeTimer = function(name) {
     var index = this.findIndexByName(name);
+    var removedTimer = this.timers[index];
     this.timers.splice(index, 1);
+    for (var i = 0; i < this.callbacks.length; i++) {
+        this.callbacks[i].timerRemoved(removedTimer);
+    }
   }
 
   this.findIndexByName = function(name) {
@@ -36,10 +40,11 @@ function TimerList() {
 
 }
 
-function TimerListCallback(emptyCallback, addedCallback) {
+function TimerListCallback(emptyCallback, addedCallback, removedCallback) {
 
     this.emptyCallback = emptyCallback;
     this.addedCallback = addedCallback;
+    this.removedCallback = removedCallback;
 
     this.listEmpty = function() {
         this.emptyCallback();
@@ -47,6 +52,10 @@ function TimerListCallback(emptyCallback, addedCallback) {
 
     this.timerAdded = function(addedTimer) {
         this.addedCallback(addedTimer);
+    }
+
+    this.timerRemoved = function(removedTimer) {
+        this.removedCallback(removedTimer);
     }
 
     return this;
