@@ -1,10 +1,15 @@
 describe('Inputting data into timerlist', function(){
 
     var scheduledTimerName = null;
+    var unscheduledTimerName = null;
     var notificationScheduler = function() {
 
         this.schedule = function(timer) {
             scheduledTimerName = timer.name;
+        }
+
+        this.unschedule = function(timer) {
+            unscheduledTimerName = timer.name;
         }
 
         return this;
@@ -42,6 +47,13 @@ describe('Inputting data into timerlist', function(){
       var list = new TimerList(notificationScheduler);
       list.addTimer(new Timer('Beef', 0));
       expect(scheduledTimerName).toBe('Beef');
+  });
+
+  it('should unschedule a notification when a timer is removed', function(){
+      var list = new TimerList(notificationScheduler);
+      list.addTimer(new Timer('Beef', 0));
+      list.removeTimer('Beef');
+      expect(unscheduledTimerName).toBe('Beef');
   });
 
 });

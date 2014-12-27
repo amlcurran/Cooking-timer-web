@@ -24,6 +24,7 @@ function TimerList(notificationScheduler) {
     for (var i = 0; i < this.callbacks.length; i++) {
         this.callbacks[i].timerRemoved(removedTimer);
     }
+    this.notificationScheduler.unschedule(removedTimer);
   }
 
   this.findIndexByName = function(name) {

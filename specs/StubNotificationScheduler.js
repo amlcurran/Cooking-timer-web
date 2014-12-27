@@ -1,7 +1,11 @@
 function StubNotificationScheduler() {
 
     this.schedule = function(timer) {
-        scheduledTimerName = timer.name;
+        
+    }
+
+    this.unschedule = function(timer) {
+
     }
 
     return this;
