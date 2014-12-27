@@ -33,6 +33,10 @@ input {
     width: 100%;
 }
 
+body {
+    margin: 0px;
+}
+
 .spacing {
     height: 4px;
 }
