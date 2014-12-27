@@ -2,9 +2,10 @@ function TimerList() {
 
   this.timers = [];
   this.callbacks = [];
+  this.arrayHelper = ArrayHelper();
 
   this.addTimer = function(timer) {
-    this.timers[this.timers.length] = timer;
+      this.arrayHelper.addToList(this.timers, timer);
     for (var i = 0; i < this.callbacks.length; i++) {
         this.callbacks[i].timerAdded(timer);
     }
@@ -35,7 +36,7 @@ function TimerList() {
 
   this.addCallback = function(callback) {
       callback.listEmpty();
-      this.callbacks[this.callbacks.length] = callback;
+      this.arrayHelper.addToList(this.callbacks, callback);
   }
 
   return this;
