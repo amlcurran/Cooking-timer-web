@@ -44,4 +44,20 @@ describe('Validating a timer', function(){
       expect(failedMessage).toBe('Time cannot be negative');
   });
 
+  it('should fail if there is no time supplied', function(){
+      var factory = new TimerFactory();
+
+      factory.create('name', null, callbacks);
+      expect(succeeded).toBe(false);
+      expect(failedMessage).toBe('Time cannot be empty');
+  });
+
+  it('should fail if there an empty time is supplied', function(){
+      var factory = new TimerFactory();
+
+      factory.create('name', '', callbacks);
+      expect(succeeded).toBe(false);
+      expect(failedMessage).toBe('Time cannot be empty');
+  });
+
 });

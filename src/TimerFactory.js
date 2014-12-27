@@ -5,6 +5,8 @@ function TimerFactory() {
         callbacks.failure('No name supplied');
     } else if (time < 0) {
         callbacks.failure('Time cannot be negative');
+    } else if (time == null || time === '') {
+        callbacks.failure('Time cannot be empty')
     } else {
         callbacks.success(new Timer(name, time));
     }
