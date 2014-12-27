@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script type='text/javascript' src='src/ArrayHelper.js' defer></script>
+    <script type='text/javascript' src='src/TimerList.js' ></script>
+    <script type='text/javascript' src='src/Timer.js' ></script>
+    <script type='text/javascript' src='src/TimerFactory.js' ></script>
+    <script type='text/javascript' src='src/UiGlue.js' defer></script>
+    <link rel='stylesheet' type='text/css' href='styles.css'></link>
+</head>
+<body>
+    <div id='addTimerHost'>
+        <h3>Add new timer</h3>
+        <input type='text' id='nameField' placeholder='Food name'/>
+        <div class='spacing' ></div>
+        <input type='time' placeholder='Time' min='0' max='600'/>
+        <div class='spacing' ></div>
+        <input type='button' id='addTimer' value='Add' />
+        <h4 id='message'>No issues.</h4>
+    </div>
+    <div id='timerListHost'>
+        <h3>Timer list</h3>
+        <div id='timerListView'>
+        </div>
+        <div id='noTimersLabel'>No timers. Add one!</div>
+    </div>
+</body>
+</html>
