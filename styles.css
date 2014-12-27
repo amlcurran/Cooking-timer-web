@@ -17,6 +17,19 @@
     -webkit-flex: 1 0 100%;
 }
 
+#message {
+    -webkit-order: -1;
+    order: -1;
+    -webkit-flex: 1 0 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: #137DAB;
+    color: white;
+    padding: 16px;
+    margin: 0px;
+}
+
 #wrap {
     display: flex;
     display: -webkit-flex;
@@ -50,6 +63,11 @@ h3 {
     body {
         width: 700px;
         margin: 0px auto 0px auto;
+    }
+
+    #message {
+        -webkit-order: 99;
+        order: 99;
     }
 
     #addTimerHost {
