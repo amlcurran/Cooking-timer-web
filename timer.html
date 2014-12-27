@@ -1,33 +1,34 @@
 <html>
-<head>
-    <script type='text/javascript' src='src/ArrayHelper.js' defer></script>
-    <script type='text/javascript' src='src/NotificationNotifier.js' ></script>
-    <script type='text/javascript' src='src/ConsoleNotifier.js' ></script>
-    <script type='text/javascript' src='src/NotificationScheduler.js' ></script>
-    <script type='text/javascript' src='src/TimerList.js' ></script>
-    <script type='text/javascript' src='src/Timer.js' ></script>
-    <script type='text/javascript' src='src/TimerFactory.js' ></script>
-    <script type='text/javascript' src='src/UiGlue.js' defer></script>
-    <link rel='stylesheet' type='text/css' href='styles.css'></link>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <div id='wrap'>
-        <div id='addTimerHost'>
-            <h3>Add new timer</h3>
-            <input type='text' id='nameField' placeholder='Food name'/>
-            <div class='spacing' ></div>
-            <input type='time' id='timeField' placeholder='Time' min='0' max='600'/>
-            <div class='spacing' ></div>
-            <input type='button' id='addTimer' value='Add' />
-            <h4 id='message'>No issues.</h4>
-        </div>
-        <div id='timerListHost'>
-            <h3>Timer list</h3>
-            <div id='timerListView'>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <script type='text/javascript' src='src/ArrayHelper.js' defer></script>
+        <script type='text/javascript' src='src/NotificationNotifier.js' ></script>
+        <script type='text/javascript' src='src/ConsoleNotifier.js' ></script>
+        <script type='text/javascript' src='src/NotificationScheduler.js' ></script>
+        <script type='text/javascript' src='src/TimerList.js' ></script>
+        <script type='text/javascript' src='src/Timer.js' ></script>
+        <script type='text/javascript' src='src/TimerFactory.js' ></script>
+        <script type='text/javascript' src='src/UiGlue.js' defer></script>
+        <link rel='stylesheet' type='text/css' href='styles.css'></link>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id='wrap'>
+            <div id='addTimerHost'>
+                <h3>Add new timer</h3>
+                <input type='text' id='nameField' placeholder='Food name'/>
+                <div class='spacing' ></div>
+                <input type='time' id='timeField' placeholder='Time' min='0' max='600'/>
+                <div class='spacing' ></div>
+                <input type='button' id='addTimer' value='Add' />
+                <h4 id='message'>No issues.</h4>
             </div>
-            <div id='noTimersLabel'>No timers. Add one!</div>
+            <div id='timerListHost'>
+                <h3>Timer list</h3>
+                <div id='timerListView'>
+                </div>
+                <div id='noTimersLabel'>No timers. Add one!</div>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
