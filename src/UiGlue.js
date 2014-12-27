@@ -41,13 +41,21 @@ var timerListCallback = TimerListCallback(function() {
 }, function(removedTimer) {
     noTimerLabel.style.display = 'none';
     var span = timerListView.querySelector('#timerSpan' + removedTimer.name);
-    span.remove();
+    span.classList.add('removing');
+    document.body.addEventListener('animationend', removeElement);
+    document.body.addEventListener('webkitAnimationEnd', removeElement);
 });
 timerList.addCallback(timerListCallback);
 
 addTimerButton.onclick = function() {
     var valueInMins = timeInputField.value;
     timerFactory.create(nameInputField.value, valueInMins * 60 * 1000, timerFactoryCallbacks);
+}
+
+this.removeElement = function(event) {
+    if (event.animationName === 'removing') {
+        event.target.remove();
+    }
 }
 
 this.updateText = function(text) {
