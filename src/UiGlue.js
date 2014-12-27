@@ -38,11 +38,12 @@ var timerListCallback = TimerListCallback(function() {
 timerList.addCallback(timerListCallback);
 
 addTimerButton.onclick = function() {
-  timerFactory.create(nameInputField.value, timeInputField.value, timerFactoryCallbacks);
+    var valueInMins = timeInputField.value;
+    timerFactory.create(nameInputField.value, valueInMins * 60 * 1000, timerFactoryCallbacks);
 }
 
 this.updateText = function(text) {
-  messageText.innerText = text;
+    messageText.innerText = text;
 }
 
 this.formatTimer = function(timerSpan) {
