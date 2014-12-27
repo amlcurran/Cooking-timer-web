@@ -9,20 +9,22 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div id='addTimerHost'>
-        <h3>Add new timer</h3>
-        <input type='text' id='nameField' placeholder='Food name'/>
-        <div class='spacing' ></div>
-        <input type='time' id='timeField' placeholder='Time' min='0' max='600'/>
-        <div class='spacing' ></div>
-        <input type='button' id='addTimer' value='Add' />
-        <h4 id='message'>No issues.</h4>
-    </div>
-    <div id='timerListHost'>
-        <h3>Timer list</h3>
-        <div id='timerListView'>
+    <div id='wrap'>
+        <div id='addTimerHost'>
+            <h3>Add new timer</h3>
+            <input type='text' id='nameField' placeholder='Food name'/>
+            <div class='spacing' ></div>
+            <input type='time' id='timeField' placeholder='Time' min='0' max='600'/>
+            <div class='spacing' ></div>
+            <input type='button' id='addTimer' value='Add' />
+            <h4 id='message'>No issues.</h4>
         </div>
-        <div id='noTimersLabel'>No timers. Add one!</div>
+        <div id='timerListHost'>
+            <h3>Timer list</h3>
+            <div id='timerListView'>
+            </div>
+            <div id='noTimersLabel'>No timers. Add one!</div>
+        </div>
     </div>
 </body>
 </html>

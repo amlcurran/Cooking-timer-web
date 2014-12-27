@@ -4,15 +4,25 @@
     -webkit-box-sizing: border-box;
     background-color: #CC0000;
     padding: 16px;
+    flex: 1 0 100%;
+    -webkit-flex: 1 0 100%;
 }
 
 #timerListHost {
-    vertical-align: top;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-color: #CCCCCC;
     padding: 16px;
+    flex: 1 0 100%;
+    -webkit-flex: 1 0 100%;
+}
+
+#wrap {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
 }
 
 #noTimersLabel {
@@ -35,13 +45,13 @@ input {
     }
 
     #addTimerHost {
-        width: 48%;
-        display: inline-block;
+        -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
     }
 
     #timerListHost {
-        width: 48%;
-        display: inline-block;
+        -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
     }
 
 }
