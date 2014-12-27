@@ -7,7 +7,7 @@ var timerListView = document.querySelector('#timerListView');
 var timeInputField = document.querySelector('#timeField');
 
 var timerFactory = new TimerFactory();
-var timerList = new TimerList(new NotificationScheduler());
+var timerList = new TimerList(new NotificationScheduler(new ConsoleNotifier()));
 
 var timerFactoryCallbacks = TimerFactoryCallbacks(function(timer) {
   updateText('Created a timer for ' + timer.name);

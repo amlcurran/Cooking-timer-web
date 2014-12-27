@@ -1,7 +1,11 @@
-function NotificationScheduler() {
+function NotificationScheduler(notifier) {
+
+    this.notifier = notifier;
 
     this.schedule = function(timer) {
-        console.log('Scheduled ' + timer.name);
+        window.setTimeout(function() {
+            notifier.notify(timer);
+        }, timer.time);
     }
 
     return this;
