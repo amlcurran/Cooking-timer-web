@@ -2,7 +2,7 @@ function NotificationNotifier() {
 
     this.notify = function(timer) {
         window.setTimeout(function() {
-            console.log('timer ticked! ' + timer.name);
+            new Notification(timer.name + ' is ready!', { 'body' : 'Don\'t forget to take it out the oven!' });
         }, timer.time);
     }
 
@@ -13,8 +13,8 @@ function NotificationNotifier() {
                     Notification.permission = status;
                 }
             });
-            console.log('Notification permission: ' + Notification.permission);
         }
+        console.log('Notification permission: ' + Notification.permission);
     }
 
     return this;
