@@ -37,6 +37,10 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
+h3 {
+    color: #137DAB;
+}
+
 .spacing {
     height: 4px;
 }
