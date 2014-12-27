@@ -1,14 +1,16 @@
-function TimerList() {
+function TimerList(notificationScheduler) {
 
   this.timers = [];
   this.callbacks = [];
   this.arrayHelper = ArrayHelper();
+  this.notificationScheduler = notificationScheduler;
 
   this.addTimer = function(timer) {
       this.arrayHelper.addToList(this.timers, timer);
     for (var i = 0; i < this.callbacks.length; i++) {
         this.callbacks[i].timerAdded(timer);
     }
+    this.notificationScheduler.schedule(timer);
   }
 
   this.getTimerName = function(index) {

@@ -20,14 +20,14 @@ describe('callbacks from timerlist', function(){
     });
 
     it('should callback empty on first attach', function() {
-        var list = new TimerList();
+        var list = new TimerList(new StubNotificationScheduler());
 
         list.addCallback(callback);
         expect(emptyCalled).toBe(true);
     });
 
     it('should callback an addition when something is added', function() {
-        var list = new TimerList();
+        var list = new TimerList(new StubNotificationScheduler());
 
         list.addCallback(callback);
         list.addTimer(new Timer('cornflakes', 0));
@@ -36,7 +36,7 @@ describe('callbacks from timerlist', function(){
     });
 
     it('should callback an removal when something is removed', function() {
-        var list = new TimerList();
+        var list = new TimerList(new StubNotificationScheduler());
 
         list.addCallback(callback);
         list.addTimer(new Timer('cornflakes', 0));
