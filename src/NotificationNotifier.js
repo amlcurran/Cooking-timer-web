@@ -9,7 +9,11 @@ function NotificationNotifier() {
     }
 
     this.notify = function(timer) {
-        window.setTimeout(this.notifyImmediate(timer), timer.time);
+        if (this.canSendNotifications()) {
+            new Notification(timer.name + ' is ready!', { 'body' : 'Don\'t forget to take it out the oven!' });
+        } else {
+            console.log(timer.name + ' is ready, but notifications are disabled');
+        }
     }
 
     this.ensureNotification = function() {
