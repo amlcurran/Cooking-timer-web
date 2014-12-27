@@ -33,6 +33,9 @@ var timerListCallback = TimerListCallback(function() {
     var newTimerText = document.createTextNode(addedTimer.name);
     formatTimer(newTimerSpan);
     newTimerSpan.id = 'timerSpan' + addedTimer.name;
+    newTimerSpan.onclick = function() {
+        timerList.removeTimer(addedTimer.name);
+    };
     newTimerSpan.appendChild(newTimerText);
     timerListView.appendChild(newTimerSpan);
 }, function(removedTimer) {
