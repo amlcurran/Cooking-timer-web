@@ -18,8 +18,6 @@
 }
 
 #message {
-    -webkit-order: -1;
-    order: -1;
     -webkit-flex: 1 0 100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -65,11 +63,6 @@ h3 {
         margin: 0px auto 0px auto;
     }
 
-    #message {
-        -webkit-order: 99;
-        order: 99;
-    }
-
     #addTimerHost {
         -webkit-flex: 1 0 auto;
         flex: 1 0 auto;
@@ -87,6 +80,11 @@ h3 {
     input {
         padding: 4px;
         font-size: 16px;
+    }
+
+    #message {
+        -webkit-align-self: flex-end;
+        align-self: flex-end;
     }
 
 }
