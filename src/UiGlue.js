@@ -3,6 +3,7 @@ var addTimerButton = document.querySelector('#addTimer');
 var nameInputField = document.querySelector('#nameField');
 var messageText = document.querySelector('#message');
 var noTimerLabel = document.querySelector('#noTimersLabel');
+var timerListView = document.querySelector('#timerListView');
 var timerFactory = TimerFactory();
 var timerList = TimerList();
 
@@ -18,6 +19,10 @@ var timerListCallback = TimerListCallback(function() {
     console.log('no timers!');
 }, function(addedTimer) {
     noTimerLabel.style.display = 'none';
+    var newTimerSpan = document.createElement('span');
+    var newTimerText = document.createTextNode(addedTimer.name);
+    newTimerSpan.appendChild(newTimerText);
+    timerListView.appendChild(newTimerSpan);
     console.log('added timer!');
 }, function(removedTimer) {
     noTimerLabel.style.display = 'none';
