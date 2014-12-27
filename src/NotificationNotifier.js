@@ -1,13 +1,5 @@
 function NotificationNotifier() {
 
-    this.notifyImmediate = function(timer) {
-        if (this.canSendNotifications()) {
-            new Notification(timer.name + ' is ready!', { 'body' : 'Don\'t forget to take it out the oven!' });
-        } else {
-            console.log(timer.name + ' is ready, but notifications are disabled');
-        }
-    }
-
     this.notify = function(timer) {
         if (this.canSendNotifications()) {
             new Notification(timer.name + ' is ready!', { 'body' : 'Don\'t forget to take it out the oven!' });

@@ -8,11 +8,13 @@ var timeInputField = document.querySelector('#timeField');
 
 var timerFactory = new TimerFactory();
 var notifier = new NotificationNotifier();
-var timerList = new TimerList(new NotificationScheduler(notifier));
+var timerList;
+var scheduler = new NotificationScheduler(notifier, new NotificationSchedulerCallbacks(function(timer) {
+    timerList.removeTimer(timer.name);
+}));
+timerList = new TimerList(scheduler);
 
 window.addEventListener('load', function () {
-    // At first, let's check if we have permission for notification
-    // If not, let's ask for it
     notifier.ensureNotification();
 });
 
@@ -30,10 +32,13 @@ var timerListCallback = TimerListCallback(function() {
     var newTimerSpan = document.createElement('span');
     var newTimerText = document.createTextNode(addedTimer.name);
     formatTimer(newTimerSpan);
+    newTimerSpan.id = 'timerSpan' + addedTimer.name;
     newTimerSpan.appendChild(newTimerText);
     timerListView.appendChild(newTimerSpan);
 }, function(removedTimer) {
     noTimerLabel.style.display = 'none';
+    var span = timerListView.querySelector('#timerSpan' + removedTimer.name);
+    span.remove();
 });
 timerList.addCallback(timerListCallback);
 
