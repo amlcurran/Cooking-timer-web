@@ -30,7 +30,7 @@ describe('callbacks from timerlist', function(){
         var list = new TimerList();
 
         list.addCallback(callback);
-        list.addTimer(new Timer('cornflakes'));
+        list.addTimer(new Timer('cornflakes', 0));
 
         expect(addedTimer).toBe('cornflakes');
     });
@@ -39,7 +39,7 @@ describe('callbacks from timerlist', function(){
         var list = new TimerList();
 
         list.addCallback(callback);
-        list.addTimer(new Timer('cornflakes'));
+        list.addTimer(new Timer('cornflakes', 0));
         list.removeTimer('cornflakes');
 
         expect(removedTimer).toBe('cornflakes');

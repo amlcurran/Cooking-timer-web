@@ -4,6 +4,8 @@ var nameInputField = document.querySelector('#nameField');
 var messageText = document.querySelector('#message');
 var noTimerLabel = document.querySelector('#noTimersLabel');
 var timerListView = document.querySelector('#timerListView');
+var timeInputField = document.querySelector('#timeField');
+
 var timerFactory = TimerFactory();
 var timerList = TimerList();
 
@@ -29,7 +31,7 @@ var timerListCallback = TimerListCallback(function() {
 timerList.addCallback(timerListCallback);
 
 addTimerButton.onclick = function() {
-  timerFactory.create(nameInputField.value, timerFactoryCallbacks);
+  timerFactory.create(nameInputField.value, timeInputField.value, timerFactoryCallbacks);
 }
 
 this.updateText = function(text) {

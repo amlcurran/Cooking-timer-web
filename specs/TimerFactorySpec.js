@@ -16,14 +16,14 @@ describe('Validating a timer', function(){
   it('should pass if there is a name supplied', function(){
     var factory = new TimerFactory();
 
-    factory.create('null', callbacks);
+    factory.create('null', 0, callbacks);
     expect(succeeded).toBe(true);
   });
 
   it('should fail if there is no name supplied', function(){
     var factory = new TimerFactory();
 
-    factory.create(null, callbacks);
+    factory.create(null, 0, callbacks);
     expect(succeeded).toBe(false);
     expect(failedMessage).toBe('No name supplied');
   });
@@ -31,9 +31,17 @@ describe('Validating a timer', function(){
   it('should fail if there is an empty name supplied', function(){
     var factory = new TimerFactory();
 
-    factory.create('', callbacks);
+    factory.create('', 0, callbacks);
     expect(succeeded).toBe(false);
     expect(failedMessage).toBe('No name supplied');
+  });
+
+  it('should fail if there is a negative time supplied', function(){
+      var factory = new TimerFactory();
+
+      factory.create('name', -100, callbacks);
+      expect(succeeded).toBe(false);
+      expect(failedMessage).toBe('Time cannot be negative');
   });
 
 });
